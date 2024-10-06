@@ -11,5 +11,4 @@ import java.time.Instant;
 public class ErrorDto {
   private String message;
   private Instant timestamp;
-  
 }

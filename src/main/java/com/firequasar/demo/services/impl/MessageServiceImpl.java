@@ -1,15 +1,13 @@
 package com.firequasar.demo.services.impl;
 
 import java.util.List;
-
 import org.springframework.stereotype.Service;
-
+import com.firequasar.demo.entities.dto.SatelliteMessageDto;
 import com.firequasar.demo.services.MessageService;
 
 @Service
 public class MessageServiceImpl implements MessageService {
 
-  @Override
   public String getMessage(List<String[]> satelliteMessages) {
 
     int maxLength = satelliteMessages.stream()
@@ -36,6 +34,12 @@ public class MessageServiceImpl implements MessageService {
 
     return finalMessage.toString().trim();
 
+  }
+
+  public List<String[]> convertMessages(List<SatelliteMessageDto> satellites) {
+    return satellites.stream()
+        .map(satellite -> satellite.getMessage().toArray(new String[0]))
+        .toList();
   }
 
 }
