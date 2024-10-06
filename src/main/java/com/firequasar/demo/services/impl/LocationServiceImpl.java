@@ -1,7 +1,8 @@
 package com.firequasar.demo.services.impl;
 
+import java.util.Comparator;
 import java.util.List;
-
+import java.util.stream.Collectors;
 import org.apache.commons.math3.fitting.leastsquares.LevenbergMarquardtOptimizer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -40,13 +41,14 @@ public class LocationServiceImpl implements LocationService{
   }
 
   private double[][] getSatellitePositions() {
-    return satelliteRepository.findAll().stream()
+    return this.getSatellites().stream()
       .map(satellite -> new double[] { satellite.getXPosition(), satellite.getYPosition() })
       .toArray(double[][]::new);
   }
   
   @Override
   public List<Satellite> getSatellites() {
-    return satelliteRepository.findAll();
+    return satelliteRepository.findAll().stream().sorted(Comparator.comparing(Satellite::getName))
+        .collect(Collectors.toList());
   }
 }
