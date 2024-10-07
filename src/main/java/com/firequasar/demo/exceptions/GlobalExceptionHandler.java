@@ -16,23 +16,25 @@ public class GlobalExceptionHandler {
   
   @ExceptionHandler(LocationException.class)
   public ResponseEntity<ErrorDto> handleLocationException(LocationException e) {
+    log.error("LocationException: {}" , e.getMessage());
     return ResponseEntity.status(HttpStatus.NOT_FOUND).body(ErrorDto.builder().message(e.getMessage()).timestamp(Instant.now()).build());
   }
 
   @ExceptionHandler(MessageException.class)
   public ResponseEntity<ErrorDto> handleMessageException(MessageException e) {
+    log.error("MessageException: {}" , e.getMessage());
     return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(ErrorDto.builder().message(e.getMessage()).timestamp(Instant.now()).build());
   }
 
   @ExceptionHandler(HttpMessageNotReadableException.class)
   public ResponseEntity<ErrorDto> handleHttpMessageNotReadableException(HttpMessageNotReadableException e) {
+    log.error("HttpMessageNotReadableException: {}" , e.getMessage());
     return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(ErrorDto.builder().message("Invalid Payload").timestamp(Instant.now()).build());
   }
 
   @ExceptionHandler(Exception.class)
   public ResponseEntity<ErrorDto> handleException(Exception e) {
-    e.printStackTrace();
-    System.out.println(e.getLocalizedMessage());
+    log.error("Exception: {}" , e.getMessage());
     return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(ErrorDto.builder().message(e.getMessage()).timestamp(Instant.now()).build());
   }
 
