@@ -2,7 +2,7 @@
 
 ## Vista de Capas
 
-![Vista de Capas](https://github.com/jcvillotab/fireQuasarOperation/images/Paquetes.png?raw=true)
+![Vista de Capas](https://github.com/jcvillotab/fireQuasarOperation/blob/main/images/Paquetes.png?raw=true)
 
 En esta vista encontramos todas las capas que componen la solución del reto, cada una de ella agrupa un conjunto de clases con responsabilidades comunes.
 
@@ -15,7 +15,7 @@ En esta vista encontramos todas las capas que componen la solución del reto, ca
 
 ## Vista de Despliegue
 
-![Vista de Despliegue](https://github.com/jcvillotab/fireQuasarOperation/images/Despliegue.png?raw=true)
+![Vista de Despliegue](https://github.com/jcvillotab/fireQuasarOperation/blob/main/images/Despliegue.png?raw=true)
 
 En esta vista encontramos el despliegue de la aplicación, la cual se encuentra desplegada en el siguiente enlace http://meli-test-quasar-alb-711465552.us-east-1.elb.amazonaws.com
 
